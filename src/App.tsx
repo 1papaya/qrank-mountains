@@ -1,7 +1,7 @@
 import type { WebMercatorViewport } from "viewport-mercator-project";
-import ReactMapGL, { Source, Layer } from "react-map-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import React, { useState } from "react";
+import ReactMapGL from "react-map-gl";
 import mapStyle from "./style.json";
 import "./App.css";
 
