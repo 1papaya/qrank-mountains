@@ -1,9 +1,12 @@
 import type { WebMercatorViewport } from "viewport-mercator-project";
+import qrankMountains from "./mountains_meta_qrank.json";
 import "maplibre-gl/dist/maplibre-gl.css";
 import React, { useState } from "react";
-import ReactMapGL from "react-map-gl";
+import ReactMapGL, { Layer, Source } from "react-map-gl";
 import mapStyle from "./style.json";
 import "./App.css";
+
+console.log(qrankMountains);
 
 function App() {
   const [viewport, setViewport] = useState({
@@ -22,7 +25,24 @@ function App() {
         onViewportChange={(nextViewport: WebMercatorViewport) =>
           setViewport(nextViewport)
         }
-      ></ReactMapGL>
+      >
+        <Source
+          id="mountains"
+          type="geojson"
+          data={qrankMountains as GeoJSON.FeatureCollection}
+        >
+          <Layer
+            id="mountains"
+            type="symbol"
+            layout={{
+              "text-font": ["Roboto Regular"],
+              "text-field": "{name}",
+              "text-size": 11
+            }}
+            paint={{}}
+          />
+        </Source>
+      </ReactMapGL>
     </div>
   );
 }
