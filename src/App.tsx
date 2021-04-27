@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import type { WebMercatorViewport } from "viewport-mercator-project";
+import ReactMapGL, { Source, Layer } from "react-map-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+import React, { useState } from "react";
+import mapStyle from "./style.json";
+import "./App.css";
 
 function App() {
+  const [viewport, setViewport] = useState({
+    latitude: 37.7577,
+    longitude: -122.4376,
+    zoom: 8,
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ReactMapGL
+        {...viewport}
+        width="100%"
+        height="100%"
+        mapStyle={mapStyle}
+        onViewportChange={(nextViewport: WebMercatorViewport) =>
+          setViewport(nextViewport)
+        }
+      ></ReactMapGL>
     </div>
   );
 }
