@@ -107,7 +107,7 @@ function App() {
               multiline
               variant="filled"
               fullWidth
-              maxRows={20}
+              maxRows={10}
               error={layout === null}
               defaultValue={JSON.stringify(defaultLayout, null, 2)}
               classes={{
@@ -149,7 +149,7 @@ function App() {
               multiline
               variant="filled"
               fullWidth
-              maxRows={20}
+              maxRows={10}
               error={filter === null}
               defaultValue={JSON.stringify(defaultFilter, null, 2)}
               classes={{
