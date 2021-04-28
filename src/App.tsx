@@ -1,7 +1,6 @@
 import { Link, Grid, Paper, TextField, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import type { Anchor } from "mapbox-gl";
 import type { LayerProps } from "react-map-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import React, { useState } from "react";
