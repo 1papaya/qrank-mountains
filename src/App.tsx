@@ -43,7 +43,7 @@ function App() {
   // style defaults
   const defaultLayout = {
     "text-font": ["Roboto Regular"],
-    "text-field": "{name}",
+    "text-field": "{name}\n{qrank}",
     "text-anchor": "left" as "left",
     "text-size": 11,
     "text-justify": "left" as "left",
