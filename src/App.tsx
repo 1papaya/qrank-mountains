@@ -90,13 +90,21 @@ function App() {
           <Grid item container>
             <Typography variant="body2">
               <Link
+                href="https://github.com/geodavey/qrank-mountains"
+                target="_blank"
+                rel="noopener"
+              >
+                source
+              </Link>
+              {" / "}
+              <Link
                 href="/mountains_meta_qrank.json"
                 target="_blank"
                 rel="noopener"
               >
                 data
               </Link>
-              : id (string) name (string) qrank (int)
+              : id (str) name (str) qrank (int)
             </Typography>
           </Grid>
           <Grid item container>
