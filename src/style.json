@@ -11,6 +11,11 @@
         "type": "raster",
         "tiles": ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
         "tileSize": 256
+      },
+      "bw": {
+        "type": "raster",
+        "tiles": ["https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"],
+        "tileSize": 256
       }
     },
     "glyphs": "https://geodavey.github.io/fonts/output/{fontstack}/{range}.pbf",
@@ -25,15 +30,6 @@
         "paint": {
           "background-color": "rgba(232, 230, 223, 1)"
         }
-      },
-      {
-        "id": "openstreetmap",
-        "type": "raster",
-        "source": "openstreetmap",
-        "layout": {
-          "visibility": "visible"
-        },
-        "paint": {}
       }
     ]
   }
