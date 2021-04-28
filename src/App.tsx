@@ -162,12 +162,6 @@ function App() {
               }}
             />
           </Grid>
-
-          <Grid item container>
-            <Typography align="right" variant="body2" style={{ width: "100%" }}>
-              (c) OpenStreetMap
-            </Typography>
-          </Grid>
         </Grid>
       </Paper>
     </div>
