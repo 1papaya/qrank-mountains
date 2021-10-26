@@ -52,16 +52,16 @@ if not os.path.isfile("data/mountains_qrank_top.csv"):
 
     mountains_qrank = mountains.merge(
         qrank, left_on=0, right_on="Entity").drop(0, axis=1)
-    mountains_qrank_top = mountains_qrank[mountains_qrank["QRank"] > 10000].sort_values(
+    mountains_qrank_top = mountains_qrank.sort_values(
         "QRank", ascending=False)
     mountains_qrank_top.to_csv("data/mountains_qrank_top.csv", index=False)
 
-if not os.path.isfile("data/mountains_meta_qrank.geojson"):
+if not os.path.isfile("data/mountains_meta_qrank.json"):
     mountains_qrank = pandas.read_csv("data/mountains_qrank_top.csv")
     mountains_qrank_half = round(len(mountains_qrank) / 2)
 
-    mountains_qrank_1 = mountains_qrank.iloc[:mountains_qrank_half,:]
-    mountains_qrank_2 = mountains_qrank.iloc[mountains_qrank_half+1:,:]
+    mountains_qrank_1 = mountains_qrank.iloc[:mountains_qrank_half, :]
+    mountains_qrank_2 = mountains_qrank.iloc[mountains_qrank_half+1:, :]
 
     mountains = []
 
@@ -89,8 +89,10 @@ if not os.path.isfile("data/mountains_meta_qrank.geojson"):
             }
         """.replace("{}", "wd:{}".format(" wd:".join(qids["Entity"].tolist())))
 
-        req_ = request.Request("https://query.wikidata.org/sparql?format=json", method="POST")
-        req = urlopen(req_, data="query={}".format(quote(mountainsMetaQuery)).encode())
+        req_ = request.Request(
+            "https://query.wikidata.org/sparql?format=json", method="POST")
+        req = urlopen(req_, data="query={}".format(
+            quote(mountainsMetaQuery)).encode())
         data = json.loads(req.read().decode('utf-8'))
 
         for mountain in data["results"]["bindings"]:
@@ -108,6 +110,8 @@ if not os.path.isfile("data/mountains_meta_qrank.geojson"):
     mountains_meta_qrank.rename({"QRank": "qrank"}, axis=1, inplace=True)
     mountains_meta_qrank.drop_duplicates("id", inplace=True)
 
-    gpd.GeoDataFrame(mountains_meta_qrank).to_file("data/mountains_meta_qrank.json", driver="GeoJSON")
+    gpd.GeoDataFrame(mountains_meta_qrank).to_file(
+        "data/mountains_meta_qrank.json", driver="GeoJSON")
 
-    copyfile("data/mountains_meta_qrank.json", "../src/mountains_meta_qrank.json")
+    copyfile("data/mountains_meta_qrank.json",
+             "../src/mountains_meta_qrank.json")
