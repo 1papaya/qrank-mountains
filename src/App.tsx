@@ -90,7 +90,7 @@ function App() {
           <Grid item container>
             <Typography variant="body2">
               <Link
-                href="https://github.com/geodavey/qrank-mountains"
+                href="https://github.com/1papaya/qrank-mountains"
                 target="_blank"
                 rel="noopener"
               >

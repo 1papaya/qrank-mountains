@@ -1,36 +1,37 @@
 {
-    "version": 8,
-    "name": "cra-ts-maplibre",
-    "sources": {
-      "opentopomap": {
-        "type": "raster",
-        "tiles": ["https://c.tile.opentopomap.org/{z}/{x}/{y}.png"],
-        "tileSize": 256
-      },
-      "openstreetmap": {
-        "type": "raster",
-        "tiles": ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
-        "tileSize": 256
-      },
-      "bw": {
-        "type": "raster",
-        "tiles": ["https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"],
-        "tileSize": 256
-      }
+  "version": 8,
+  "name": "cra-ts-maplibre",
+  "sources": {
+    "opentopomap": {
+      "type": "raster",
+      "tiles": ["https://c.tile.opentopomap.org/{z}/{x}/{y}.png"],
+      "tileSize": 256
     },
-    "glyphs": "https://geodavey.github.io/fonts/output/{fontstack}/{range}.pbf",
-    "layers": [
-      {
-        "id": "background",
-        "type": "background",
-        "minzoom": 0,
-        "layout": {
-          "visibility": "visible"
-        },
-        "paint": {
-          "background-color": "rgba(232, 230, 223, 1)"
-        }
+    "openstreetmap": {
+      "type": "raster",
+      "tiles": ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
+      "tileSize": 256
+    },
+    "bw": {
+      "type": "raster",
+      "tiles": [
+        "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
+      ],
+      "tileSize": 256
+    }
+  },
+  "glyphs": "https://1papaya.github.io/fonts/output/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "minzoom": 0,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "background-color": "rgba(232, 230, 223, 1)"
       }
-    ]
-  }
-  
+    }
+  ]
+}
